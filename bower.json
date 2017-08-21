@@ -1,0 +1,29 @@
+{
+  "name": "Examen-Pabs",
+  "homepage": "https://github.com/andres07cr/Examen-Pabs",
+  "authors": [
+    "andres07cr <avegag@ucenfotec.ac.cr>"
+  ],
+  "description": "examen proyecto web",
+  "main": "app.js",
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+    "dependencies": {
+    "angular-css": "^1.0.8",
+    "angular-ui-router": "^0.4.2",
+    "angular-local-storage": "^0.6.0",
+    "bootstrap": "^3.3.7",
+    "font-awesome": "^4.7.0",
+    "ng-file-upload": "^12.2.13",
+    "oclazyload": "^1.1.0",
+    "angular-material": "^1.1.4",
+    "bootstrap-material-design": "4.0.2"
+  }
+}

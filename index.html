@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+	<head>
+		<meta charset="UTF-8">
+		<title>Document</title>
+		<!-- Css -->
+			<link rel="stylesheet" href="./css/style.css">
+			<!-- Angular Material -->
+				<link rel="stylesheet" href="./bower_components/angular-material/angular-material.css">
+			<!-- font awsome -->
+				<link rel="stylesheet" href="./bower_components/font-awesome/css/font-awesome.min.css">
+			<!-- Bootstrap -->
+				<link rel="stylesheet" href="./bower_components/bootstrap/dist/css/bootstrap.min.css">
+				<link rel="stylesheet" type="text/css" href="./css/sweetalert2.css">
+	</head>
+	<body>
+	
+		<div ng-controller="tabCtrl" layout="column">
+	        <md-toolbar>
+	          <h2 class="md-toolbar-tools">
+	            <span class="white">Examen Proyecto web</span>
+	          </h2>
+	        </md-toolbar>
+	        <md-tabs md-stretch-tabs
+	                 md-selected="selectedIndex">
+	           <md-tab label="Registro de jugadores"></md-tab>
+	           <md-tab label="Comprar propiedades"></md-tab>
+	           <md-tab label="propiedades"></md-tab>
+	           <md-tab label="Jugadores"></md-tab>
+	        </md-tabs>
+        	<div id="content" ui-view flex> </div>
+      	</div>
+
+		<!-- Scripts Generales -->
+			<script src="./bower_components/jquery/dist/jquery.min.js"></script>
+			<script src="./bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+		<!-- AngularJS -->
+			<script src="./bower_components/angular/angular.min.js"></script>
+			<!-- Dependencias de AngularJs -->
+			<script src="./bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
+			<script src="bower_components/ng-file-upload/ng-file-upload-shim.min.js"></script>
+			<script src="bower_components/ng-file-upload/ng-file-upload.min.js"></script>
+			<script src="./bower_components/oclazyload/dist/ocLazyLoad.min.js"></script>
+			<script src="./bower_components/angular-aria/angular-aria.js"></script>
+			<script src="./bower_components/angular-animate/angular-animate.js"></script>
+			<script src="./bower_components/angular-messages/angular-messages.min.js"></script>
+			<script src="./bower_components/angular-material/angular-material.js"></script>
+			<script src="./bower_components/angular-css/angular-css.js"></script>
+			<script src="./js/sweetalert2.js"></script>
+		<!-- Scripts de la aplicacion -->
+			<script src="./app.js"></script>
+			<script src="./route.js"></script>
+			<script src="./components/services/user.service.js"></script>
+			<script src="components/services/image.services.js"></script>
+	</body>
+</html>
