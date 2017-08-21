@@ -4,7 +4,7 @@
     .module('myApp')
     .service('userService', userService);
 
-  function userService() {
+  function userService($http) {
     var players = [
     {code: '001',
     name:'Goku',
@@ -761,10 +761,7 @@
     return publicAPI;
 
     function _setUsers(pnewPlayer) {
-      var list = _getUsers();
-
-      list.push(pnewPlayer);
-      localStorage.setItem('lsPlayers', JSON.stringify(list));
+      return $http.post('http://localhost:3000/api/users',pnewPlayer);
     }
 
     function _getProperty(){
@@ -832,11 +829,7 @@
     }
 
     function _getUsers() {
-      var list = JSON.parse(localStorage.getItem('lsPlayers'));
-      if (list == null) {
-        list = players;
-      }
-      return list;
+      return $http.get('http://localhost:3000/api/users');
     }
   }
 

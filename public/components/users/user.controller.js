@@ -7,6 +7,14 @@
   function userController(userService,ImageService, Upload) {
     var vm = this;
     vm.cloudObj = ImageService.getConfiguration();
+    loadUsers();
+
+
+    function loadUsers() {
+      userService.getUsers().then(function(response) {
+        vm.players = response.data;
+      });
+    }
 
     function init() {
       vm.players = userService.getUsers();
