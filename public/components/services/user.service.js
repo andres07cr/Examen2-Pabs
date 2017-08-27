@@ -5,39 +5,6 @@
     .service('userService', userService);
 
   function userService($http) {
-    var players = [
-    {code: '001',
-    name:'Goku',
-    alias: 'Kokkun',
-    money: 1500,
-    property:[],
-    photo:'https://res.cloudinary.com/pabskun/image/upload/v1489535279/goku_cqc9tb.png'},
-     {
-    code: '002',
-    name:'Piccolo',
-    alias: 'PikOREO',
-    money: 1500,
-    property:[],
-  photo:'https://res.cloudinary.com/pabskun/image/upload/v1489535276/piccolo_ksxdec.png'
-  },
-  {
-    code: '003',
-    name:'Logan',
-    alias: 'Lovezno',
-    money: 1500,
-    property:[],
-    photo:'https://res.cloudinary.com/pabskun/image/upload/v1489535284/lobezno_o1vs9g.png'
-  },
-  {
-    code: '004',
-    name:'Bomberman',
-    alias: 'Don Pepe y los Globos',
-    money: 1500,
-    property:[],
-    photo:'https://res.cloudinary.com/pabskun/image/upload/v1489535282/donpepe_x9hksw.png'
-  },
-    ];
-
     var propiedades = [
     {
       name: "Mediterranean Avenue",
@@ -784,8 +751,8 @@
       return validate;
     }
 
-    function _check(pnewPlayer){
-      var list = _getUsers();
+    function _check(pnewPlayer,players){
+      var list = players;
       var validate = false
       for(var i = 0; i < list.length; i++){
         if (pnewPlayer.code == list[i].code) {
@@ -795,27 +762,32 @@
       return validate;
     }
 
-    function _update(pBuy,pPrice){
-      var list = _getUsers();
+    function _update(pBuy,pPrice,Players){
+      var list = Players;
       for( var i = 0; i < list.length; i++){
         if (pBuy.player === list[i].name) {
           var info = list[i];
           var newPlayer = {
+            _id: info._id,
             code: info.code,
             name: info.name,
             alias: info.alias,
             money: info.money - pPrice,
             photo: info.photo,
-            property: info.property
+            property: info.property + ' ' + pBuy.property + ', '
           }
-          newPlayer.property.push(pBuy.property)
-          list[i] = newPlayer;
+          // newPlayer.property.push(pBuy.property)
+          // list[i] = newPlayer;
         }
       }
-      localStorage.setItem('lsPlayers', JSON.stringify(list));
+      modificarUser(newPlayer);
     }
 
-    function _buy(pBuy){
+    function modificarUser(pobjUser) {
+      return $http.put('http://localhost:3000/api/update_user',pobjUser);
+    }
+
+    function _buy(pBuy,Players){
       var list = _getProperty();
       var price = 0;
       for(var i = 0; i < list.length; i++){
@@ -825,7 +797,7 @@
         }
         localStorage.setItem('lsProperty', JSON.stringify(list));
       }
-      _update(pBuy,price);
+      _update(pBuy,price,Players);
     }
 
     function _getUsers() {

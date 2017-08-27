@@ -31,7 +31,7 @@
         property:[],
         photo: pimage
       }
-      var validate = userService.check(newPlayer);
+      var validate = userService.check(newPlayer,vm.players);
       if (validate == false) {
       userService.setUsers(newPlayer);
       init();
@@ -40,6 +40,12 @@
       'Jugador registrado!',
       '',
       'success'
+      )
+      }else{
+        swal(
+      'el jugador ya existe!',
+      '',
+      'info'
       )
       }
     }
@@ -62,7 +68,7 @@
       }
       var validate = userService.checkProperty(newbuy);
       if (validate == false) {
-      userService.buy(newbuy);
+      userService.buy(newbuy,vm.players);
       init();
       cleanTwo();
       swal(

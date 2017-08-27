@@ -9,7 +9,7 @@
               <label class="control-label">Jugador</label>
               <select  class="form-control" ng-model="vm.player" required>
                 <option  disabled="" selected=""></option>
-                <option ng-repeat="jugadores in vm.players track by $index" value="{{jugadores.name}}">{{jugadores.name}}</option>
+                <option ng-repeat="jugadores in vm.players" value="{{jugadores.name}}">{{jugadores.name}}</option>
                </select>
             </div>  
           </div>
