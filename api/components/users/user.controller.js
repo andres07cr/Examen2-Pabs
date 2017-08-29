@@ -8,7 +8,8 @@ module.exports.save = function(req,res){ //exporta el controlador
           alias:req.body.alias,
           money:req.body.money,
           photo:req.body.photo,
-          property:req.body.property
+          property:req.body.property,
+          bio: req.body.bio
         });
 
         newUser.save(function(err){

@@ -47,6 +47,16 @@
 			<script src="./bower_components/angular-material/angular-material.js"></script>
 			<script src="./bower_components/angular-css/angular-css.js"></script>
 			<script src="./js/sweetalert2.js"></script>
+			<script type="text/javascript" src="https://static.filestackapi.com/v3/filestack.js"></script>
+			<script>
+			    var client = filestack.init('AN9Dplwp5SBKi9AUs8ucez');
+			    function showPicker() {
+			        client.pick({
+			        }).then(function(result) {
+			            console.log(JSON.stringify(result.filesUploaded))
+			        });
+			    }
+			</script>
 		<!-- Scripts de la aplicacion -->
 			<script src="./app.js"></script>
 			<script src="./route.js"></script>

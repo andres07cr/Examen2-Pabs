@@ -25,7 +25,25 @@
             </div>
           </div>
         </div>
+        <div class="col-md-4">
+          <label>Biografia</label> 
+           <a href="" id="url" target="_blank"></a>
+          </div>
 		<button class="btn btn-default pull-right" ng-click="vm.preSave()" ng-disabled="RegPlayer.$invalid">Guardar</button>
 	</form>
 </section>
 <script src="form.js"></script>
+<script type="text/javascript" src="https://static.filestackapi.com/v3/filestack.js"></script>
+      <script>
+         const link = document.getElementById('url');
+         const client = filestack.init('AN9Dplwp5SBKi9AUs8ucez');
+              client.pick({
+             accept: ['image/*', '.pdf', 'video/mp4','docx','.zip','.txt']
+            }).then(function(result) {
+              const fileUrl = result.filesUploaded[0].url; 
+              link.href=fileUrl; 
+              link.innerHTML=fileUrl;
+              console.log(fileUrl)
+              localStorage.setItem('lsUrl', JSON.stringify(fileUrl));
+            });
+      </script>

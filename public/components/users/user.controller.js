@@ -23,16 +23,19 @@
     }
     init();
     vm.Save = function(pimage){
+      var url = localStorage.getItem('lsUrl');
       var newPlayer = {
         code: vm.code,
         name: vm.name,
         alias: vm.alias,
         money: 1000,
         property:[],
-        photo: pimage
+        photo: pimage,
+        bio: url,
       }
       var validate = userService.check(newPlayer,vm.players);
       if (validate == false) {
+        console.log(newPlayer)
       userService.setUsers(newPlayer);
       init();
       clear();
